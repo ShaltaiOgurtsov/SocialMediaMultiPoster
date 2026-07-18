@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./MultiPosterServer
+    ports:
+      - "5000:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./Milti-Poster-App
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Milti-Poster-App:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

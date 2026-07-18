@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: ./MultiPosterServer
+    ports:
+      - "5000:8080"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./Milti-Poster-App
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  info:
+    image: alpine
+    depends_on:
+      - backend
+      - frontend
+    command: >
+      sh -c "echo '' &&
+             echo '✅ Applications are up and running!' &&
+             echo '🌐 Frontend: http://localhost:3000' &&
+             echo '🔧 Backend:  http://localhost:5000' &&
+             echo ''"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,111 +1,356 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
+input, textarea, button, select, p {
+  font-family: inherit;
+}
+
+body{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.app-layout{
   display: flex;
   flex-direction: column;
+  height: 98.8vh;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.main-row{
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+
+.workspace{
+  width: 100%;
+  padding: 20px;
+  overflow-y: none;
+  background-color: #f5f6f8;
+  min-height: 0;
+}
+
+.topBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px double #cbcdd1;
+  width: 100%;
+  padding: 16px 24px;
+}
+
+.accountButtonContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar{
+  width: 15%;
+  flex-shrink: 0;
+  border-right: 1px double #cbcdd1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.sidebarButton{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 7px;
+  cursor: pointer;
+  margin: 10px;
+  user-select: none;
+}
+
+.sidebarButton input{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.standardCard{
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 30px 50px 30px 50px;
+  border: 1px double #cbcdd1;
+  margin: 10px;
+}
+
+.app-wrapper{
+  height: 100vh;
+  padding: 4px;
+  border: 3px solid #7cb87f;
+  border-radius: 24px;
   box-sizing: border-box;
+  background-color: #7cb87f;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+html, body{
+  height: 100%;
+  background-color: #7cb87f;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+.buttonSimple{
+
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.standardCardDown{
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px double #cbcdd1;
+  margin: 10px;
+  height: 83.5vh;
+  flex: 1;
 }
 
-code {
+.titleInput{
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  border-radius: 10px;
+  margin: 9px 0px 9px 0px;
+}
+
+.titleInput,
+.textAreaInput,
+.hashTagInput{
+  transition: border-color 0.1s ease, background-color 0.1s ease;
+}
+
+.titleInput:hover,
+.textAreaInput:hover,
+.hashTagInput:hover{
+  border-color: #9ca3af; 
+  background-color: #fafafa; 
+}
+
+.textAreaInput{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 9px 0px 9px 0px;
+  resize: none;
+}
+
+.texterInput{
+  margin:  15px 40px 30px 40px;
+}
+
+.hashTagInput{
+  width: 98.8%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 9px 0px 9px 0px;
+}
+
+.texterCardDown{
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px double #cbcdd1;
+  margin: 10px;
+  height: 68.5vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.texterButtons{
+  display: flex;
+  justify-content: right;
+}
+
+.buttonSimple{
+  background-color: #cbcdd1;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+.buttonSimple:hover,
+.buttonHighlighted:hover{
+  filter: brightness(0.92);
+}
+
+.buttonSimple:active,
+.buttonHighlighted:active{
+  filter: brightness(0.85);
+  transform: scale(0.98);
+}
+
+.buttonHighlighted{
+  background-color: #7cb87f;
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border-color: #184e2c;
+}
+
+.inputText{
+  font-size: 40px;
+}
+
+.texterHeadings{
+  color: #5e5e5e;
+  font-size: 18px;
+}
+
+.contactPage{
+  padding: 10px 10px 50px 10px;
+}
+
+.buttonSimple,
+.buttonHighlighted{
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin: 7px;
+}
+
+
+.buttonImager{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.sidebarButton p {
+  margin-left: 8px;
+}
+
+.sidebarButton{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebarButton {
+  background-color: transparent;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.sidebarButton:hover {
+  background-color: #ebedf0; 
+}
+
+.sidebarButton:active {
+  background-color: #dcdfe3; 
+  transform: scale(0.98);
+}
+
+.sidebarImage{
+  width: 21px;
+  height: 21px;
+  object-fit: contain;
+}
+
+.photoIcon {
+  border-radius: 90px;
+  border: 1px solid #d1d5db;
+  width: 50px;
+  height: 50px;
+}
+
+.accountWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content:  center;
+  align-items: center;
+  background-color: rgb(226, 228, 234);
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.accountName{
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.accountArrowDown{
+  height: 24px;
+  width: 24px;
+}
+
+.socialMediaIcon{
+  width: 50px;
+  height: 50px;
+  margin: 14px;
+}
+
+.socialMediaWheel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plusIcon{
+  width: 35px;
+  height: 35px;
+  margin: 20px;
+}
+
+.imagePosterWrapper{
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.uploadImagePhoto{
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.photoUploader{
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.uploadedPreview{
+  object-fit: contain;
+  width: 50px;
+  height: 50px;
+}
+
+.photoUploader{
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebarArrow{
+  height: 25px;
+  width: 25px;
+}
+
+.sidebarText {
+  user-select: none;
 }

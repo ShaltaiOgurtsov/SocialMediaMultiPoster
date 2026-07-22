@@ -9,6 +9,8 @@ input, textarea, button, select, p {
   font-family: inherit;
 }
 
+
+
 body{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -71,6 +73,29 @@ body{
   cursor: pointer;
   margin: 10px;
   user-select: none;
+}
+
+.sidebarSearch input{
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.sidebarSearch{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 7px;
+  cursor: pointer;
+  margin: 10px;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebarSearch input:hover{
+  filter: brightness(0.92);
 }
 
 .sidebarButton input{
@@ -168,7 +193,7 @@ html, body{
   padding: 20px;
   border: 1px double #cbcdd1;
   margin: 10px;
-  height: 68.5vh;
+  height: 82vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -211,6 +236,7 @@ html, body{
 }
 
 .texterHeadings{
+  margin-top: 10px;
   color: #5e5e5e;
   font-size: 18px;
 }
@@ -233,6 +259,7 @@ html, body{
 .buttonImager{
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 
@@ -282,6 +309,7 @@ html, body{
   background-color: rgb(226, 228, 234);
   padding: 7px;
   border-radius: 8px;
+  border: 1px double #8a8c98;
 }
 
 .accountName{
@@ -292,17 +320,21 @@ html, body{
 .accountArrowDown{
   height: 24px;
   width: 24px;
+  anchor-name: --my-anchor;
 }
 
 .socialMediaIcon{
   width: 50px;
   height: 50px;
   margin: 14px;
+  object-fit: cover;
+  border-radius: 8px;
+
 }
 
 .socialMediaWheel{
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -310,6 +342,43 @@ html, body{
   width: 35px;
   height: 35px;
   margin: 20px;
+}
+
+.plusContainer{
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.12s ease;
+  border-radius: 8px;
+}
+
+.plusContainer:hover{
+  filter: brightness(0.9);
+  background-color: #dcdfe3;
+}
+
+.plusContainer:active{
+  transform: scale(0.86);
+}
+
+
+.uploadImagePhoto {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: filter 0.15s ease;
+}
+
+.imageWrapper:hover .uploadImagePhoto {
+  filter: brightness(0.6);
+}
+
+.imageWrapper:hover .closer {
+  opacity: 0.7;
+}
+
+
+.imageWrapper{
+  position: relative;
 }
 
 .imagePosterWrapper{
@@ -320,11 +389,30 @@ html, body{
   align-items: center;
 }
 
-.uploadImagePhoto{
-  width: 120px;
-  height: 120px;
-  margin: 10px;
-  border-radius: 10px;
+
+.closer{
+  position: absolute;  
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  font-size: 24px;
+  opacity: 0;           
+  transition: opacity 0.2s ease;
+  z-index: 2;            
+  cursor: pointer;
+  background-color: #4a4a4a;
+  border-radius: 60px;
+  width: 40px;
+  height: 40px;
+}
+
+.closerIcon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 23px;
+  height: 23px;
 }
 
 .photoUploader{
@@ -332,6 +420,14 @@ html, body{
   height: 120px;
   margin: 10px;
   border-radius: 10px;
+  display: flex;
+  background-color: rgb(225, 229, 236);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.photoUploader:active{
+  transform: scale(0.85);
 }
 
 .uploadedPreview{
@@ -349,8 +445,227 @@ html, body{
 .sidebarArrow{
   height: 25px;
   width: 25px;
+  
 }
 
 .sidebarText {
   user-select: none;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarSubmenu{
+  margin-left: 40px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.sidebarSubmenuButton{
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  transition: transform 0.1s ease;
+}
+
+.sidebarSubmenuButton:hover{
+  background-color: #ebedf0; 
+}
+
+.sidebarSubmenuButton:active{
+  transform: scale(0.93);
+}
+
+.sidebarSubmenu p{
+  font-size: 16px;
+}
+
+.addNewPreset{
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  width: 65%;
+  object-fit: contain;
+}
+
+.arrowDownContainer{
+  cursor: pointer;
+}
+
+.arrowDownContainer:hover{
+  border-radius: 8px;
+  background-color: #808389;
+}
+
+
+.socialMediaWrapper{
+  position: relative;
+}
+
+.socialMediaWrapper:hover .socialMediaClose{
+    opacity: 0.6;
+}
+
+.socialMediaWrapper:hover .socialMediaIcon{
+  filter: brightness(0.6);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.socialMediaClose{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 60px;
+  width: 27px;
+  height: 27px;
+  opacity: 0;
+  background-color: #808389;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.socialMediaCloseIcon{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dropdownMenu{
+  position: absolute;
+  position-anchor: --my-anchor;
+  top: anchor(bottom);
+  right: anchor(right);
+  background-color: rgb(226, 228, 234);
+  border-radius: 8px;
+  transform: translateY(20px);
+  transform: translateX(10px);
+  transform: translate(20px, 20px);
+  display: flex;
+  flex-direction: column;
+  border: 1px double #8a8c98;
+}
+
+.dropdownMenuIcon{
+  width: 30px;
+  height: 30px;
+}
+
+.dropdownIconWrapper{
+  display: flex;
+  flex-direction: row;
+  margin: 13px;
+  align-items: center;
+}
+
+.dropdownMenuText{
+  margin-left: 10px;
+}
+
+.infoBar{
+  border-bottom: 1px double #8a8c98;
+}
+
+.exitIconWrapper{
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  align-items: center;
+  background-color: rgb(226, 228, 234);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.exitIconWrapper:hover{
+  filter: brightness(0.8);
+}
+
+.exitIconWrapper:active{
+  transform: scale(0.93);
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 400px;
+
+}
+
+.modalClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modalCloseIcon{
+  width: 20px;
+  height: 20px;
+}
+
+.socialMediaPopupWrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupSocialMediaWrapper{
+  margin: 30px 13px 13px 13px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+}
+
+.popupSocialMediaWrapperActive{
+  margin: 50px 13px 13px 13px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0);
+  transform: translateY(-22px);
+  filter: brightness(1.3);
+}
+
+.popupSocialMediaWrapper:hover{
+ background: rgba(0, 0, 0, 0.5);
+ filter: brightness(0.7);
+}
+
+.popupImageWrapper{
+  width: 40px;
+  height: 40px;
+}
+
+.socialMediaPopupBottomer{
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
 }

@@ -1,11 +1,10 @@
-import textIcon from "@/assets/icons/menuitems/align-left.png"
-import videoIcon from "@/assets/icons/menuitems/video-camera.png"
-import shortVideoIcon from "@/assets/icons/menuitems/tik-tok.png"
+
 import infoIcon from "@/assets/icons/menuitems/info.png"
 
 import upwardArrow from "@/assets/icons/menuitems/upward-arrow.png"
 import downArrow from "@/assets/icons/menuitems/down-arrow.png"
-import { useState } from "react"
+
+import plus from "@/assets/icons/menuitems/plus.png"
 
 const arrows = [
     {   photo: downArrow, alt: 'down-arrow' },
@@ -15,41 +14,49 @@ const arrows = [
 
 
 
-export function Sidebar(){
-    const [textMessenger, setTextMessenger] = useState(true)
-    const [videoMessenger, setVideoMessenger] = useState(true)
-    const [shortVideoMessenger, setShortVideoMessenger] = useState(true);
-    const [infoPage, setInfoPage] = useState(true);
+export function Sidebar({menuItems, changeWorkspace}){
 
-    const toggleTextMessenger = () => setTextMessenger(!textMessenger)
-    const toggleVideoMessenger = () => setVideoMessenger(!videoMessenger)
-    const toggleShortVideoMessenger = () => setShortVideoMessenger(!shortVideoMessenger)
-    const toggleInfoPage = () => setInfoPage(!infoPage)
-
-    const menuItems = [
-        {   button: 'Text Presets', name: 'textIcon', icon: textIcon, toggleFunction: toggleTextMessenger, isToggled:  textMessenger   },
-        {   button: 'Video Presets', name: 'videoIcon', icon: videoIcon, toggleFunction: toggleVideoMessenger, isToggled:   videoMessenger   },
-        {   button: 'Stories Presets', name: 'shortVideoIcon', icon: shortVideoIcon, toggleFunction: toggleShortVideoMessenger, isToggled:  shortVideoMessenger  },
-        {   button: 'Info', name: 'infoIcon', icon: infoIcon, toggleFunction: toggleInfoPage, isToggled:  infoPage  }
-    ]
+    console.log(`Change workspace: ${changeWorkspace}`);
+    
 
     return (
         <div className="sidebar">
             <div>
-                <div className="sidebarButton">
+                <div className="sidebarSearch">
                     <input placeholder="Search..." />
                 </div>
                 {
                     menuItems.map((item) => (
-                        <div className="sidebarButton" onClick={item.toggleFunction}>
-                            <div className="buttonImager">
-                                <img className="sidebarImage" src= {item.icon} alt = {item.name}/>
-                                <p className="sidebarText">{item.button}</p>
-                            </div>
-                            <img className="sidebarArrow" src={item.isToggled ? arrows[0].photo : arrows[1].photo} alt = {item.isToggled ? arrows[0].alt : arrows[1].alt}/>
+                        <div className="submenuCluster">
+                            <div className="sidebarButton" onClick={item.toggleFunction}>
+                                <div className="buttonImager">
+                                    <img className="sidebarImage" src= {item.icon} alt = {item.name}/>
+                                    <p className="sidebarText">{item.button}</p>
+                                </div>
+                                <img className="sidebarArrow" src={item.isToggled ? arrows[0].photo : arrows[1].photo} alt = {item.isToggled ? arrows[0].alt : arrows[1].alt}/>
+                            </div>    
+                                {!item.isToggled && (
+                                    <div className="sidebarSubmenu">
+                                        <div className="sidebarSubmenuButton" onClick={() => changeWorkspace(item.form)}>
+                                            <p>NoPreset</p>
+                                        </div>
+                                        <div className="sidebarSubmenuButton" onClick={() => changeWorkspace(item.form)}>
+                                            <img src={plus} alt="Add new preset" className="addNewPreset"/>
+                                        </div>
+                                    </div>
+                                )}
                         </div>
                     ))
                 }
+
+                <div className="submenuCluster">
+                            <div className="sidebarButton">
+                                <div className="buttonImager">
+                                    <img className="sidebarImage" src= {infoIcon} alt = 'info-icon'/>
+                                    <p className="sidebarText">Info</p>
+                                </div>
+                            </div>    
+                        </div>
             </div>
             <div className="contactPage">
                 <p>Contact information</p>

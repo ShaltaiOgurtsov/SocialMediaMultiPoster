@@ -118,6 +118,7 @@ export function TexterForm(){
 
             <div className="texterCardDown">
                 <div className="texterInput">
+                    <h2>Texter form</h2>
 
                     <p className="texterHeadings">Title: </p>
                     <input className="titleInput" placeholder="Title..."/>

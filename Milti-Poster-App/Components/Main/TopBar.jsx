@@ -7,6 +7,7 @@ import shortVideoIcon from "@/assets/icons/menuitems/tik-tok.png"
 import exitIcon from "@/assets/icons/menuitems/exit.png"
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const photos = { photo: photoExample, alt: 'example-media'}
 
@@ -16,6 +17,11 @@ const downArrow = { photo: arrow, art: 'down-arrow'}
 
 
 export function TopBar(){
+    const navigate = useNavigate()
+
+    const loginRedirect = () => {
+        navigate('/login')
+    }
 
     const dropdownMenuItems = [
         {   photo: textIcon, button: `TextPresets: `, alt: "text-icon"},
@@ -52,7 +58,7 @@ export function TopBar(){
                                 }
                             </div>
                             <div className="dropdownMenuItem">
-                                <div className="exitIconWrapper">
+                                <div className="exitIconWrapper" onClick={() => {loginRedirect()}}>
                                     <img src={exitIcon} alt='exit-icon' className="dropdownMenuIcon"/>
                                     <p className="dropdownMenuText">Exit</p>
                                 </div>

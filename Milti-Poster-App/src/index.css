@@ -669,3 +669,60 @@ html, body{
   justify-content: end;
   flex-direction: row-reverse;
 }
+
+
+.loginPage{
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  padding: 30px 30px 70px 30px;
+  border-radius: 10px;
+  border: 1px double #9698aa;
+}
+
+.loginPage h2{ 
+  margin-bottom: 20px;
+}
+
+.loginWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+}
+
+.loginTextField{
+  height: 35px;
+  margin: 20px 2px 20px 2px;
+  font-size: 16px;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.signupButton {
+  background-color: #4f7c5a;
+  color: #ffffff;
+  border: none;
+  height: 30px;
+  border-radius: 13px;
+  margin: 10px;
+  font-size: 17px;
+
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.signupButton:hover {
+  background-color: #3f6448;
+}
+
+.signupRedirect{
+  cursor: pointer;
+  color: #3f6448;
+}

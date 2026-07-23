@@ -6,12 +6,28 @@ import videoIcon from "@/assets/icons/menuitems/video-camera.png"
 import shortVideoIcon from "@/assets/icons/menuitems/tik-tok.png"
 import exitIcon from "@/assets/icons/menuitems/exit.png"
 
+import facebookIcon from "@/assets/icons/social-media-icons/facebook-app-symbol.png"
+import githubIcon from "@/assets/icons/social-media-icons/github-2.png"
+import instagramIcon from "@/assets/icons/social-media-icons/github-2.png"
+import twitterIcon from "@/assets/icons/social-media-icons/github-2.png"
+import youtubeIcon from "@/assets/icons/social-media-icons/github-2.png"
+
+
+
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const photos = { photo: photoExample, alt: 'example-media'}
 
 const downArrow = { photo: arrow, art: 'down-arrow'}
+
+const initialSocialMediaPopup = [
+    {icon: facebookIcon, alt: 'facebook-icon', name: 'Facebook'},
+    {icon: instagramIcon, alt: 'instagram-icon', name: 'Instagram'},
+    {icon: twitterIcon, alt: 'twitter-icon', name: 'Twitter'},
+    {icon: youtubeIcon, alt: 'youtube-icon', name: 'Facebook'},
+    {icon: githubIcon, alt: 'github-icon', name: 'Github'},
+]
 
 
 
